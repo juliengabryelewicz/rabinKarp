@@ -28,18 +28,7 @@ rk_hashstring <- function(str, len) {
 }
 
 rk_check <- function(txt, pattern) {
-  Check <- ArgumentCheck::newArgCheck()
-  if (!(is.character(txt) & length(txt) == 1)){
-    ArgumentCheck::addError(
-      msg = "'texte' must be a string",
-      argcheck = Check
-    )
-  }
-  if (!is.vector(pattern)){
-    ArgumentCheck::addError(
-      msg = "'pattern' must be a vector",
-      argcheck = Check
-    )
-  }
-  ArgumentCheck::finishArgCheck(Check)
+
+  stopifnot((is.character(txt) & length(txt) == 1), (is.vector(pattern)))
+
 }
